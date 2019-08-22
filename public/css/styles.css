@@ -4,6 +4,10 @@ body {
     max-width: 650px;
     margin: 0 auto;
     padding: 0 1rem;
+
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 header {
@@ -35,4 +39,12 @@ header a {
 header a:hover {
     transition: background 1s;
     background: #ddd;
+}
+
+.portrait {
+    width: 250px;
+}
+
+.main-content {
+    flex-grow: 1;
 }

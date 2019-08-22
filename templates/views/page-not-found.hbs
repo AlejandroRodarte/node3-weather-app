@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
 
     <title>Page Not Found</title>
@@ -16,13 +17,18 @@
 
 <body>
     
-    {{!-- header partial --}}
-    {{>header}}
+    <div class="main-content">
 
-    {{!-- custom error message --}}
-    <p>
-        {{errorMessage}}
-    </p>
+        {{!-- header partial --}}
+        {{>header}}
+
+        {{!-- custom error message --}}
+        <p>
+            {{errorMessage}}
+        </p>
+
+    </div>
+
 
     {{!-- footer partial --}}
     {{>footer}}

@@ -8,6 +8,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+        <link rel="icon" href="/img/weather.png">
         <link rel="stylesheet" href="/css/styles.css">
 
         <title>About</title>
@@ -16,10 +17,17 @@
 
     <body>
         
-        {{!-- render the header.hbs partial --}}
-        {{>header}}
+        <div class="main-content">
 
-        <img src="/img/alejandro.jpg" alt="">
+            {{!-- render the header.hbs partial --}}
+            {{>header}}
+
+            <img src="/img/alejandro.jpg" 
+                alt=""
+                class="portrait">
+
+        </div>
+
 
         {{!-- render the footer.hbs partial --}}
         {{>footer}}
