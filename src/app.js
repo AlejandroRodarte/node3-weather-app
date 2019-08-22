@@ -69,6 +69,33 @@ app.get('/weather', (req, res) => {
     
 });
 
+// match any page that has not been matched yet and that starts with /help
+// must go ALWAYS BEFORE the generic '*' app.get()
+app.get('/help/*', (req, res) => {
+
+    // render page-not-found.hbs with custom data
+    res.render('page-not-found', {
+        title: '404',
+        name: 'Alejandro Rodarte',
+        errorMessage: 'Help article not found'
+    });
+
+});
+
+// match for all the rest of the routes (* wildcard)
+// load 404 page
+// this should always be the LAST app.get
+app.get('*', (req, res) => {
+
+    // render page-not-found.hbs with custom data
+    res.render('page-not-found', {
+        title: '404',
+        name: 'Alejandro Rodarte',
+        errorMessage: 'Page Not Found'
+    });
+
+});
+
 // listen(): set up a server on a particular port
 // accepts a callback to run some code when the server has been deployed
 app.listen(3000, () => {
