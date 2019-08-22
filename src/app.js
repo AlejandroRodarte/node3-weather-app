@@ -1,52 +1,31 @@
+const path = require('path');
+
 // the Express library
 const express = require('express');
 
 // initalize Express
 const app = express();
 
-// @GetMapping request: used to serve data a client requests
-// first param: url path (root in this case)
-// second param: handler for what to do when users accesses the path
-// this callback receives two arguments: a request and a response
-app.get('', (req, res) => {
+// path to /public: current path to /src, go one level up and go to /public
+const publicDir = path.join(__dirname, '..', 'public');
 
-    // send(): respond to the requester with some information
-    // sending HTML
-    res.send('<h1>Weather</h1>');
-
-});
-
-// @GetMapping on the /help path
-app.get('/help', (req, res) => {
-
-    // sending JSON as a response
-    // gets stringified automatically
-    res.send([
-        {
-            name: 'Alejandro',
-            age: 27
-        },
-        {
-            name: 'Sarah',
-            age: 15
-        }
-    ]);
-
-});
-
-// @GetMapping on the /about path
-app.get('/about', (req, res) => {
-    // sending HTML
-    res.send('<h1>About Us</h1>');
-});
+// express.static() to inform Express from where we will load the static assets
+app
+    .use(
+        express.static(
+            path.join(publicDir)
+        )
+    );
 
 // @GetMapping on the /weather path
 app.get('/weather', (req, res) => {
+
     // sending JSON
     res.send({
         forecast: 'Rainy',
         location: 'Chihuahua, Chihuahua, Mexico'
     });
+    
 });
 
 // listen(): set up a server on a particular port
