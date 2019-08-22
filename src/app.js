@@ -1,24 +1,25 @@
 const path = require('path');
 
-// the Express library
+// the Express library: exports a single function
 const express = require('express');
 
-// initalize Express
+// initalize Express: call the express() main function
 const app = express();
 
 // path to /public: current path to /src, go one level up and go to /public
 const publicDir = path.join(__dirname, '..', 'public');
 
-// use hbs as the view engine
+// path to /templates (custom for Handlebars to find our views)
+const viewsDir = path.join(__dirname, '..', 'templates');
+
+// use Handlebars as the view engine
 app.set('view engine', 'hbs');
 
+// set Express to search for dynamic views on /templates
+app.set('views', viewsDir);
+
 // express.static() to inform Express from where we will load the static assets
-app
-    .use(
-        express.static(
-            path.join(publicDir)
-        )
-    );
+app.use(express.static(path.join(publicDir)));
 
 // GET request on /
 app.get('', (req, res) => {
