@@ -3,6 +3,9 @@ const path = require('path');
 // the Express library: exports a single function
 const express = require('express');
 
+// Handlebars directory
+const hbs = require('hbs');
+
 // initalize Express: call the express() main function
 const app = express();
 
@@ -10,7 +13,13 @@ const app = express();
 const publicDir = path.join(__dirname, '..', 'public');
 
 // path to /templates (custom for Handlebars to find our views)
-const viewsDir = path.join(__dirname, '..', 'templates');
+const viewsDir = path.join(__dirname, '..', 'templates', 'views');
+
+// set path to /templates/partials for Handlebar partials
+const partialsDir = path.join(__dirname, '..', 'templates', 'partials');
+
+// inform Handlebars where our partials directory is located
+hbs.registerPartials(partialsDir);
 
 // use Handlebars as the view engine
 app.set('view engine', 'hbs');
@@ -44,7 +53,8 @@ app.get('/about', (req, res) => {
 app.get('/help', (req, res) => {
     res.render('help', {
         title: 'Help',
-        helpMessage: 'How can I help you in this wonderful day?'
+        name: 'Alejandro Rodarte',
+        helpMessage: 'How can I help you?'
     })
 });
 

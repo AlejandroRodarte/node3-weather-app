@@ -16,16 +16,13 @@
 
     <body>
         
-        {{!-- loading dynamic data coming from res.send() --}}
-        <h1>
-            {{ title }}
-        </h1>
+        {{!-- render the header.hbs partial --}}
+        {{>header}}
 
         <img src="/img/alejandro.jpg" alt="">
 
-        <p>
-            Created by: {{ name }}
-        </p>
+        {{!-- render the footer.hbs partial --}}
+        {{>footer}}
 
     </body>
 
