@@ -9,23 +9,44 @@ const app = express();
 // second param: handler for what to do when users accesses the path
 // this callback receives two arguments: a request and a response
 app.get('', (req, res) => {
+
     // send(): respond to the requester with some information
-    res.send('Hello from an Express Application!');
+    // sending HTML
+    res.send('<h1>Weather</h1>');
+
 });
 
 // @GetMapping on the /help path
 app.get('/help', (req, res) => {
-    res.send('This is the help page.');
+
+    // sending JSON as a response
+    // gets stringified automatically
+    res.send([
+        {
+            name: 'Alejandro',
+            age: 27
+        },
+        {
+            name: 'Sarah',
+            age: 15
+        }
+    ]);
+
 });
 
 // @GetMapping on the /about path
 app.get('/about', (req, res) => {
-    res.send('This is the about page.');
+    // sending HTML
+    res.send('<h1>About Us</h1>');
 });
 
 // @GetMapping on the /weather path
 app.get('/weather', (req, res) => {
-    res.send('This is the weather page.');
+    // sending JSON
+    res.send({
+        forecast: 'Rainy',
+        location: 'Chihuahua, Chihuahua, Mexico'
+    });
 });
 
 // listen(): set up a server on a particular port
