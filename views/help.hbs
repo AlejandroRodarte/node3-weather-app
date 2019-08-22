@@ -8,15 +8,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-        <title>About</title>
+        <link rel="stylesheet" href="/css/styles.css">
+
+        <title>Help</title>
 
     </head>
 
     <body>
         
+        {{!-- loading dynamic data coming from res.send() --}}
         <h1>
-            About
+            {{ title }}
         </h1>
+
+        <p>
+            {{ helpMessage }}
+        </p>
 
     </body>
 
