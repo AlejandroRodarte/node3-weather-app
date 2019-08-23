@@ -50,6 +50,7 @@ header a:hover {
 }
 
 .box-success {
+    color: white;
     padding: 1rem;
     background: rgb(141, 151, 141);
     border-radius: 0.4rem;
@@ -58,6 +59,7 @@ header a:hover {
 }
 
 .box-fail {
+    color: white;
     padding: 1rem;
     background: rgb(197, 85, 85);
     border-radius: 0.4rem;
@@ -66,9 +68,34 @@ header a:hover {
 }
 
 .box-info {
+    color: white;
     padding: 1rem;
     background: rgb(106, 104, 224);
     border-radius: 0.4rem;
     margin: 0.7rem 0;
     display: none;
+}
+
+.text-input {
+    padding: 0.7rem;
+    margin: 0 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #888;
+}
+
+.btn {
+    padding: 0.7rem;
+    border: none;
+    border-radius: 0.5rem;
+}
+
+.btn-submit {
+    background: rgb(163, 177, 158);
+    color: white;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    transition: background 1s;
+    background: rgb(118, 128, 115);
 }
