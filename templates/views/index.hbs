@@ -10,7 +10,6 @@
 
         <link rel="icon" href="/img/weather.png">
         <link rel="stylesheet" href="/css/styles.css">
-        <script src="/js/app.js"></script>
 
         <title>Main Page</title>
 
@@ -27,11 +26,46 @@
                 Use this site to get your weather!
             </p>
 
+            <p  id="error-result"
+                class="box-fail">
+
+            </p>
+
+            <form>
+
+                <input  type="text" 
+                        name="location" 
+                        id="location"
+                        placeholder="Location">
+                
+                <button type="submit">
+                    Get Forecast
+                </button>
+
+            </form>
+
+            <p  id="loading"
+                class="box-info">
+                Loading...
+            </p>
+
+            <p  id="location-result"
+                class="box-success">
+
+            </p>
+
+            <p  id="forecast-result"
+                class="box-success">
+
+            </p>
+
         </div>
 
 
         {{!-- render the footer.hbs partial --}}
         {{>footer}}
+
+        <script src="/js/app.js"></script>
 
     </body>
 

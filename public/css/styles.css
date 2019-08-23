@@ -48,3 +48,27 @@ header a:hover {
 .main-content {
     flex-grow: 1;
 }
+
+.box-success {
+    padding: 1rem;
+    background: rgb(141, 151, 141);
+    border-radius: 0.4rem;
+    margin: 0.7rem 0;
+    display: none;
+}
+
+.box-fail {
+    padding: 1rem;
+    background: rgb(197, 85, 85);
+    border-radius: 0.4rem;
+    margin: 0.7rem 0;
+    display: none;
+}
+
+.box-info {
+    padding: 1rem;
+    background: rgb(106, 104, 224);
+    border-radius: 0.4rem;
+    margin: 0.7rem 0;
+    display: none;
+}
