@@ -61,12 +61,36 @@ app.get('/help', (req, res) => {
 // @GetMapping on the /weather path
 app.get('/weather', (req, res) => {
 
-    // sending JSON
+    // check for query param named 'location' existence
+    if (!req.query.address) {
+        return res.send({
+            error: 'You must provide a address'
+        });
+    }
+
+    // respond with the query param value
     res.send({
-        forecast: 'Rainy',
-        location: 'Chihuahua, Chihuahua, Mexico'
+        address: req.query.address
     });
     
+});
+
+// GET on /products
+app.get('/products', (req, res) => {
+
+    // req.query: access query params object of route
+    // if 'search' param does not exist on query, throw error
+    // we can't run res.send() twice, so return
+    if (!req.query.search) {
+        return res.send({
+            error: 'You must provide a search term'
+        });
+    }
+
+    res.send({
+        products: []
+    });
+
 });
 
 // match any page that has not been matched yet and that starts with /help
