@@ -73,7 +73,8 @@ app.get('/weather', (req, res) => {
     }
 
     // correct address has been provided, call geocode() async function
-    geocode(req.query.address, (error, { latitude, longitude, location }) => {
+    // default value set to empty object to avoid destructuring crash
+    geocode(req.query.address, (error, { latitude, longitude, location } = {}) => {
 
         // callback returned response: an error has been sent? send as a response the error
         if (error) {
