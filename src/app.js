@@ -13,6 +13,9 @@ const forecast = require('./utils/forecast');
 // initalize Express: call the express() main function
 const app = express();
 
+// dynamic port added by Heroku on this variable
+const port = process.env.PORT || 3000;
+
 // path to /public: current path to /src, go one level up and go to /public
 const publicDir = path.join(__dirname, '..', 'public');
 
@@ -153,6 +156,6 @@ app.get('*', (req, res) => {
 
 // listen(): set up a server on a particular port
 // accepts a callback to run some code when the server has been deployed
-app.listen(3000, () => {
-    console.log('Server is up and running on localhost:3000/')
+app.listen(port, () => {
+    console.log('Server is up and running on localhost:' + port);
 });
