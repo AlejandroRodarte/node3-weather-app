@@ -6,6 +6,10 @@ const express = require('express');
 // Handlebars directory
 const hbs = require('hbs');
 
+// utility methods that make the API calls to the Mapbox and Dark Sky APIs
+const geocode = require('./utils/geocode');
+const forecast = require('./utils/forecast');
+
 // initalize Express: call the express() main function
 const app = express();
 
@@ -68,9 +72,35 @@ app.get('/weather', (req, res) => {
         });
     }
 
-    // respond with the query param value
-    res.send({
-        address: req.query.address
+    // correct address has been provided, call geocode() async function
+    geocode(req.query.address, (error, { latitude, longitude, location }) => {
+
+        // callback returned response: an error has been sent? send as a response the error
+        if (error) {
+            return res.send({
+                error
+            });
+        }
+
+        // no error on geocode(); call forecast() async function
+        forecast(latitude, longitude, (error, forecast) => {
+
+            // callback returned response: an error has been sent? send as a response the error
+            if (error) {
+                return res.send({
+                    error
+                });
+            }
+
+            // no error on forecast(); send as a response the location from geocode() and forecast from forecast()
+            res.send({
+                location,
+                forecast,
+                address: req.query.address
+            });
+
+        });
+
     });
     
 });
